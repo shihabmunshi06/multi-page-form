@@ -1,0 +1,42 @@
+@use "../base/abstract" as *;
+
+.steps-container {
+  > .personal-info {
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 2.4rem;
+
+      &.clicked {
+        .input-wrapper input:invalid {
+          border: 1px solid #9e5b64;
+        }
+      }
+
+      .input-wrapper {
+        display: flex;
+        flex-direction: column;
+
+        label {
+          color: #0a2751;
+          font-weight: 400;
+          margin-bottom: 1rem;
+        }
+        input {
+          border: 1px solid #b5b6bb;
+          border-radius: 1rem;
+          width: 50rem;
+          height: 5rem;
+          padding: 1.6rem;
+          color: #032851;
+          font-size: 1.6rem;
+          font-weight: 500;
+
+          &:focus {
+            border: 1px solid #534d95;
+          }
+        }
+      }
+    }
+  }
+}

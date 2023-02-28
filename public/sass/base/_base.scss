@@ -1,0 +1,101 @@
+@use "../base/abstract" as *;
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  text-decoration: none;
+  outline: none;
+  border: none;
+  position: relative;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+body {
+  background-color: var(--BG);
+  color: var(--Text);
+}
+img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+a,
+button {
+  display: inline-block;
+}
+#root {
+  @include flex;
+  height: 100vh;
+  width: 100vw;
+  background-color: #eef5ff;
+}
+
+.main-container {
+  @include flex;
+  background-color: white;
+  width: 104rem;
+  height: 66rem;
+  border-radius: 1.4rem;
+  justify-content: left;
+  gap: 11rem;
+}
+
+.steps-container {
+  > * {
+    .top {
+      h1 {
+        color: #0a2751;
+      }
+      p {
+        color: #b5b6bb;
+        font-weight: 400;
+        margin-top: 2rem;
+      }
+    }
+
+    form {
+      margin-top: 4rem;
+
+      .buttons {
+        
+        @include flex;
+        width: 100%;
+        margin-top: 5rem;
+
+        > * {
+          cursor: pointer;
+        }
+
+        .back {
+          background-color: white;
+          color: #a4a5a9;
+
+          &:hover {
+            color: #03295a;
+          }
+        }
+        .next {
+          height: 4.6rem;
+          width: 12rem;
+          border-radius: 0.8rem;
+          background-color: #03295a;
+          color: white;
+          margin-left: auto;
+
+          &:hover {
+            background-color: #174a89;
+          }
+        }
+      }
+    }
+  }
+}

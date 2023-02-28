@@ -1,0 +1,6 @@
+@mixin flex($juco: center, $alite: center, $fledi: row) {
+  display: flex;
+  justify-content: $juco;
+  align-items: $alite;
+  flex-direction: $fledi;
+}

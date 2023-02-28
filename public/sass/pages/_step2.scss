@@ -1,0 +1,26 @@
+@use "../base/abstract" as *;
+
+.select-plan {
+  form {
+    .cards {
+      @include flex;
+      gap: 1.6rem;
+
+      .card {
+        @include flex($fledi: column, $alite: flex-start, $juco: space-between);
+        height: 16rem;
+        width: 12rem;
+        border-radius: 1rem;
+        border: 1px solid black;
+        padding: 1.8rem 1.4rem;
+        cursor: pointer;
+        
+        .image-wrapper {
+          height: 4rem;
+          width: 4rem;
+          border-radius: 50%;
+        }
+      }
+    }
+  }
+}
