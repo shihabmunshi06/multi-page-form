@@ -54,11 +54,13 @@ button {
     .top {
       h1 {
         color: #0a2751;
+        font-size: 3.4rem;
+        font-weight: 700;
       }
       p {
         color: #b5b6bb;
         font-weight: 400;
-        margin-top: 2rem;
+        margin-top: 1.6rem;
       }
     }
 
@@ -66,7 +68,6 @@ button {
       margin-top: 4rem;
 
       .buttons {
-        
         @include flex;
         width: 100%;
         margin-top: 5rem;

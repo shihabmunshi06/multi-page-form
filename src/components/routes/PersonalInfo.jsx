@@ -1,10 +1,28 @@
-import React, { useRef } from 'react'
+import React, { useState, useRef } from 'react'
+import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from 'react-router-dom';
 
+import { addInfo } from '../../redux/actionMaker';
+
 export default function PersonalInfo() {
+    let fetchedPersonalInfo = useSelector(state => state.personalInfo)
+    let [personalInfo, setPersonalInfo] = useState(fetchedPersonalInfo)
 
     const formRef = useRef()
+
+    const dispatch = useDispatch()
     const navigate = useNavigate()
+
+    function handleChange(e) {
+        let { name, value } = e.target
+        setPersonalInfo((prev) => {
+            return {
+                ...prev,
+                [name]: value
+            }
+
+        })
+    }
 
     function handleClick() {
         formRef.current.classList.add("clicked")
@@ -13,6 +31,7 @@ export default function PersonalInfo() {
     function handleSubmit(e) {
         e.preventDefault()
         formRef.current.classList.remove("clicked")
+        dispatch(addInfo("personalInfo", personalInfo))
         navigate("/plan")
     }
 
@@ -28,18 +47,18 @@ export default function PersonalInfo() {
 
                 <div className='input-wrapper'>
                     <label htmlFor="name">Name</label>
-                    <input name='name' placeholder='e.g Stephen King' required />
+                    <input name='name' placeholder='e.g Stephen King' value={personalInfo.name} onChange={handleChange} required />
                 </div>
 
 
                 <div className='input-wrapper'>
                     <label htmlFor="email">Email Address</label>
-                    <input name='email' placeholder='e.g stephen@lorem.com' type="email" required />
+                    <input name='email' placeholder='e.g stephen@lorem.com' value={personalInfo.email} onChange={handleChange} type="email" required />
                 </div>
 
                 <div className='input-wrapper'>
                     <label htmlFor="number">Phone Number</label>
-                    <input name='number' placeholder='e.g +1 234 567 890' type="number" required />
+                    <input name='number' placeholder='e.g +1 234 567 890' value={personalInfo.number} onChange={handleChange} type="number" required />
                 </div>
                 <div className='buttons'>
                     <button className='next' onClick={handleClick} type='submit'>

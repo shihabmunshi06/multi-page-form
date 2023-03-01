@@ -1,28 +1,7 @@
 import React from 'react'
 import NavCard from './NavCard';
 
-let navData = [
-    {
-        number: 1,
-        details: "your info",
-        path: ""
-    },
-    {
-        number: 2,
-        details: "select plan",
-        path: "plan"
-    },
-    {
-        number: 3,
-        details: "add-ons",
-        path: "addon"
-    },
-    {
-        number: 4,
-        details: "summary",
-        path: "summary"
-    },
-]
+import navData from "../data/navData"
 
 export default function SideNav() {
     return (

@@ -31,13 +31,10 @@
     border: 1px solid white;
     font-weight: 700;
 
-    &:hover {
+    &:active {
       background-color: #bde2fb;
       color: #0a2751;
       border: none;
-    }
-    &.active {
-      background-color: #bde2fb;
     }
   }
 
@@ -46,10 +43,10 @@
       text-transform: uppercase;
     }
     p {
+      font-size: 1.3rem;
       font-weight: 400;
-    }
-    h2 {
-      font-weight: 700;
+      color: #a8a7ff;
+      margin-bottom: .1rem;
     }
   }
 }

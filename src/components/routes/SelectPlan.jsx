@@ -1,39 +1,45 @@
 import React, { useState } from 'react'
-import PlanCard from '../PlanCard'
+import { useNavigate } from 'react-router-dom'
 
-const cardsData = [
-  {
-    image: "./dist/images/icon-arcade.svg",
-    planType: "Arcade",
-    mo: "$9/mo",
-    yr: "$90/yr"
-  },
-  {
-    image: "./dist/images/icon-advanced.svg",
-    planType: "Advanced",
-    mo: "$12/mo",
-    yr: "$120/yr"
-  },
-  {
-    image: "./dist/images/icon-pro.svg",
-    planType: "Pro",
-    mo: "$15/mo",
-    yr: "$150/yr"
-  }
-]
+import { useDispatch, useSelector } from "react-redux"
+
+import PlanCards from '../PlanCards'
+import ModeInputs from "../ModeInputs"
+
+import { addInfo } from "../../redux/actionMaker"
 
 export default function SelectPlan() {
-  let [moState, setMoState] = useState(true)
+  let fetchedSelectPlan = useSelector(state => state.selectPlan)
+  let [selectPlan, setSelectPlan] = useState(fetchedSelectPlan)
 
-  function handleSubmit() {
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
 
+  function handleSubmit(e) {
+    e.preventDefault()
+    dispatch(addInfo("selectPlan", selectPlan))
+    navigate("/addon")
   }
   function handleBack() {
-
+    navigate("/")
   }
 
-  function handleToggle() {
-    setMoState(false)
+  function handleToggle(e) {
+    setSelectPlan(prev => {
+      return {
+        ...prev,
+        duration: e.target.value
+      }
+    })
+  }
+
+  function handleModeChange(e) {
+    setSelectPlan(prev => {
+      return {
+        ...prev,
+        mode: e.target.value
+      }
+    })
   }
 
   return (
@@ -46,20 +52,34 @@ export default function SelectPlan() {
 
       <form onSubmit={handleSubmit} >
 
-        <div class="cards-and-toggler-wrapper">
-
-          <div className="cards">
-            {cardsData.map(card => {
-              return (
-                <PlanCard moState={moState} {...card} />
-              )
-            })}
-          </div>
-
-          <div class="inputs">
-            <input type="radio" name="plan" id="arcade" />
-          </div>
+        <div className="cards-and-inputs-wrapper">
+          <PlanCards selectPlan={selectPlan} />
+          <ModeInputs selectPlan={selectPlan} handleChange={handleModeChange} />
         </div>
+
+        <fieldset
+          className="toggler"
+          aria-label="monthly and yearly toggler"
+          role="radiogroup"
+        >
+          <label className="monthly" htmlFor="monthly">
+            Monthly
+          </label>
+
+          <div className="toggle-bg">
+
+            <input onChange={handleToggle} checked={selectPlan.duration === "monthly"} type="radio" name="mo-yr" id="monthly" value="monthly" required />
+            <input onChange={handleToggle} checked={selectPlan.duration === "yearly"} type="radio" name="mo-yr" id="yearly" value="yearly" />
+
+            <div className="toggle-switch"></div>
+
+          </div>
+
+          <label className="yearly" htmlFor="yearly">
+            Yearly
+          </label>
+
+        </fieldset>
 
         <div className='buttons'>
           <button onClick={handleBack} className='back' >
