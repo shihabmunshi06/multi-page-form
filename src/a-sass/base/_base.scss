@@ -1,0 +1,98 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+
+  text-decoration: none;
+  outline: none;
+  border: none;
+
+  position: relative;
+
+  font-size: 1.6rem;
+}
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  outline: none;
+  border: none;
+}
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  -ms-overflow-style: none;
+}
+body {
+  font-family: "Ubuntu", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.6rem;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+a,
+span,
+i {
+  display: inline-block;
+}
+a {
+  color: inherit;
+}
+svg {
+  display: block;
+}
+ul,
+ol {
+  list-style: none;
+}
+
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  background: none;
+  color: inherit;
+  outline: none;
+  appearance: none;
+  resize: none;
+}
+button {
+  cursor: pointer;
+}
+
+textarea {
+  overflow: auto;
+}
+
+hr {
+  height: 1px;
+  background-color: var(--text-color-main);
+  opacity: 0.2;
+}
+
+audio,
+video {
+  display: block;
+  width: 100%;
+}
+
+// [hidden] {
+//   display: none !important;
+// }

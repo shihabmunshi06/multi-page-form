@@ -1,0 +1,58 @@
+.finishing-up-wrapper {
+  .input-wrapper {
+    border-bottom: 1px solid var(--Light-gray);
+    padding-bottom: 3rem;
+    display: flex;
+    justify-content: space-between;
+
+    .left-part {
+      h2 {
+        text-transform: capitalize;
+        color: var(--Marine-blue);
+      }
+      .inside-button {
+        margin-top: 0.4rem;
+        cursor: pointer;
+        color: var(--Cool-gray);
+        text-decoration: underline;
+      }
+    }
+
+    .money {
+      color: var(--Marine-blue);
+      font-weight: 500;
+    }
+  }
+}
+
+.bottom-part{
+  margin-top: 2rem;
+
+  .detail-card {
+    display: flex;
+    justify-content: space-between; 
+    margin-bottom: 1rem;
+    &:last-child {
+      margin-top: 2.6rem;
+    }
+    h3 {
+      font-weight: 400;
+      color: var(--Cool-gray);
+    }
+    h4 {
+      font-weight: 400;
+      color: var(--Marine-blue);
+    }
+  
+    &.total {
+      h4 {
+        font-size: 2rem;
+        color: var(--Purplish-blue);
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+
+

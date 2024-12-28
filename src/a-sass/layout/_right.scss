@@ -1,0 +1,57 @@
+.right {
+  // background-color: crimson;
+  height: 100%;
+  width: calc(100% - 27rem);
+  padding-top: 3rem; //top push the fieldset down for styling
+
+  form {
+    height: 100%;
+    button {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      height: 4rem;
+      width: 12rem;
+      border-radius: 6px;
+      background-color: var(--Marine-blue);
+      color: var(--White);
+      font-weight: 500;
+      text-transform: capitalize;
+    }
+    .go-back {
+      height: 4rem;
+      width: 12rem;
+      line-height: 4rem;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      background-color: var(--White);
+      text-transform: capitalize;
+      color: var(--Cool-gray);
+      font-weight: 500;
+      &:hover {
+        color: var(--Marine-blue);
+      }
+    }
+  }
+  fieldset {
+    legend {
+      color: var(--Marine-blue);
+      font-size: 3.2rem;
+      font-weight: 800;
+    }
+    .sub-heading {
+      margin-top: 1.4rem;
+      color: var(--Cool-gray);
+      margin-bottom: 2.8rem; //push the inputs down
+    }
+
+    //same label style for every page
+    label {
+      color: var(--Marine-blue);
+      font-size: 1.4rem;
+      font-weight: 400;
+      text-transform: capitalize;
+    }
+  }
+}

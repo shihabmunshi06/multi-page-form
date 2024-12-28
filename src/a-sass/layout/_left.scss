@@ -1,0 +1,85 @@
+@use "../base/abstract" as *;
+
+.left {
+  border-radius: 1rem;
+  width: 27rem;
+  height: 100%;
+  background-image: url("/images/bg-sidebar-desktop.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  .steps {
+    color: var(--White);
+    padding: 4rem 3rem;
+    @extend %flex;
+    flex-direction: column;
+    gap: 3rem;
+    text-transform: uppercase;
+    .step {
+      // background-color: red;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 1.6rem;
+      &.active {
+        .circle {
+          background-color: var(--Light-blue);
+          border-color: var(--Light-blue);
+          color: var(--Marine-blue);
+        }
+      }
+      .circle {
+        @extend %flex;
+        background-color: transparent;
+        height: 3rem;
+        aspect-ratio: 1;
+        border-radius: 50%;
+
+        border: 1px solid var(--White);
+        p {
+          font-weight: 500;
+        }
+      }
+      .texts {
+        h2 {
+          font-size: 1.3rem;
+          font-weight: 300;
+          letter-spacing: -5%;
+          color: var(--Pastel-blue);
+        }
+        h3 {
+          font-weight: 800;
+          letter-spacing: 2%;
+          word-spacing: 4px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .left {
+    // display: none;
+    //left only holds the bg image the steps inside holds the real texts so no padding here
+    height: clamp(16rem, 45vw, 26rem);
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 0;
+    border-radius: 0;
+    background-image: url("/images/bg-sidebar-mobile.svg");
+
+    .steps {
+      padding: 0;
+      flex-direction: row;
+      gap: 1.6rem;
+      width: fit-content;
+      margin-inline: auto;
+      margin-top: clamp(3rem, 8vw, 7rem);
+      .texts {
+        display: none;
+      }
+    }
+  }
+}

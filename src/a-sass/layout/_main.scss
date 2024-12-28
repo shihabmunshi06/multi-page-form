@@ -1,0 +1,54 @@
+@use "../base/abstract" as *;
+
+.main {
+  background-color: var(--Light-blue);
+
+  width: 100vw;
+  height: 100vh;
+  min-width: 34rem;
+  min-height: 40rem;
+
+  @extend %flex;
+
+  .white-bg {
+    background-color: var(--White);
+
+    padding-top: 1.8rem;
+    padding-bottom: 1.8rem;
+    padding-left: 1.6rem;
+    padding-right: clamp(6rem, 8vw, 12rem);
+
+    width: clamp(80rem, 66vw, 95rem);
+    height: clamp(52rem, 75vh, 70rem);
+
+    @extend %flex;
+    gap: clamp(4rem, 7vw, 10rem);
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .main {
+    align-items: flex-start;
+
+    .white-bg {
+      height: 100vh;
+      background-color: crimson;
+      padding: 0 4vw;
+      align-items: flex-start;
+      .right {
+        margin-top: clamp(10rem, 25vw, 18rem);
+        background-color: white;
+        width: 100%;
+        padding: 4vw;
+        border-radius: 1rem;
+        height: fit-content;
+        button {
+          position: fixed;
+          right: 0;
+          bottom: 0;
+          transform: translate(-4vw, -4vw);
+        }
+      }
+    }
+  }
+}
