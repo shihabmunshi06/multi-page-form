@@ -13,11 +13,8 @@ const costSlice = createSlice({
         removeCost: (state, action) => {
             state.cost -= action.payload
         },
-        resetCost: (state) => {
-            state.cost = 0
-        },
     }
 })
 
 export default costSlice.reducer
-export const { addCost, removeCost, resetCost } = costSlice.actions
+export const { addCost, removeCost } = costSlice.actions

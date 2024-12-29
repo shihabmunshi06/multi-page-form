@@ -12,6 +12,7 @@
 
   .white-bg {
     background-color: var(--White);
+    border-radius: 1.6rem;
 
     padding-top: 1.8rem;
     padding-bottom: 1.8rem;
@@ -31,24 +32,10 @@
     align-items: flex-start;
 
     .white-bg {
-      height: 100vh;
       background-color: crimson;
+      height: 100vh;
       padding: 0 4vw;
       align-items: flex-start;
-      .right {
-        margin-top: clamp(10rem, 25vw, 18rem);
-        background-color: white;
-        width: 100%;
-        padding: 4vw;
-        border-radius: 1rem;
-        height: fit-content;
-        button {
-          position: fixed;
-          right: 0;
-          bottom: 0;
-          transform: translate(-4vw, -4vw);
-        }
-      }
     }
   }
 }

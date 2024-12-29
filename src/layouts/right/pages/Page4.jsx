@@ -1,14 +1,14 @@
+import { Link, useNavigate } from 'react-router';
+import { useSelector } from "react-redux"
+import PropTypes from 'prop-types';
+
 import FormTop from '../../../components/FormTop'
 
-import { Link } from 'react-router';
-import { useSelector } from "react-redux"
-
-
-
 export default function Page4() {
-    const totalCost = useSelector(state => state.cost.cost)
+    const navigate = useNavigate()
+    const addOnsCost = useSelector(state => state.cost.cost)
     const addOns = useSelector(state => state.allInfo.addOns)
-    const { mode, duration, planCost } = useSelector(state => state.allInfo.selectedPlan)
+    const { mode, duration, monthlyMoney, yearlyMoney } = useSelector(state => state.allInfo.selectedPlan)
 
     const formHero = {
         main: "Finising up",
@@ -18,10 +18,7 @@ export default function Page4() {
     const onSubmit = (e) => {
         e.preventDefault()
         console.log("success")
-    }
-
-    const handleEditPlan = (e) => {
-        e.preventDefault()
+        navigate("/thank-you")
     }
 
 
@@ -29,12 +26,27 @@ export default function Page4() {
         const { addOnsName, price } = data
         return (
             <div className="detail-card">
-                <h3>{addOnsName}</h3>
+                <h3>{addOnsName.replace("-", " ")}</h3>
                 <h4>${price}{duration === "monthly" ? "/mo" : "/yr"}</h4>
             </div>
         )
     }
+    DetailCard.propTypes = {
+        data: PropTypes.shape({
+            addOnsName: PropTypes.string,
+            price: PropTypes.number,
+        })
+    };
 
+    let modeCost = ""
+    let costText = ""
+    if (duration === "monthly") {
+        modeCost = monthlyMoney
+        costText = "/mo"
+    } else {
+        modeCost = yearlyMoney
+        costText = "/yr"
+    }
     return (
         <>
             <form className='confirm-form' onSubmit={onSubmit}>
@@ -43,10 +55,12 @@ export default function Page4() {
                     <div className="finishing-up-wrapper">
                         <div className="input-wrapper">
                             <div className="left-part">
-                                <h2>{mode} {duration}</h2>
-                                <p className='inside-button' onClick={handleEditPlan}>Change</p>
+                                <h2>{mode} ({duration})</h2>
+                                <Link to="/select-plan" className='inside-button'>Change</Link>
                             </div>
-                            <p className="money">{planCost}</p>
+                            <p className="money">
+                                ${modeCost}{costText}
+                            </p>
                         </div>
                     </div>
                 </fieldset>
@@ -57,8 +71,8 @@ export default function Page4() {
                     })}
 
                     <div className="detail-card total">
-                        <h3>Total</h3>
-                        <h4>${totalCost}{duration === "monthly" ? "/mo" : "/yr"}</h4>
+                        <h3>Total {duration === "monthly" ? "(per month)" : "(per year)"}</h3>
+                        <h4>${addOnsCost + modeCost}{costText}</h4>
                     </div>
                 </div>
 

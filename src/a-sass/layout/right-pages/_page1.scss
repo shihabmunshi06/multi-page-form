@@ -11,15 +11,17 @@
     }
   }
   input {
+    height: 4.4rem;
+    width: 100%;
+    border-radius: 6px;
+    border: 1px solid var(--Light-gray);
+
+    margin-top: 0.8rem; //spce from the label
+    padding: 0 1.6rem;
+
     color: var(--Marine-blue);
     font-weight: 500;
-    padding: 0 1.6rem;
-    margin-top: 0.8rem; //spce from the label
-    border-radius: 6px;
-    // width: 44rem;
-    width: 100%;
-    height: 4.4rem;
-    border: 1px solid var(--Light-gray);
+
     &::placeholder {
       font-weight: 500;
     }
@@ -28,11 +30,11 @@
     }
   }
   p {
+    max-width: 30rem;
     position: absolute;
     right: 0;
     top: 0;
     color: var(--Strawberry-red);
     font-weight: 500;
-    max-width: 30rem;
   }
 }

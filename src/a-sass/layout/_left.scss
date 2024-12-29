@@ -1,27 +1,31 @@
 @use "../base/abstract" as *;
 
 .left {
-  border-radius: 1rem;
   width: 27rem;
   height: 100%;
+
+  border-radius: 1rem;
+
   background-image: url("/images/bg-sidebar-desktop.svg");
   background-repeat: no-repeat;
   background-size: cover;
 
   .steps {
-    color: var(--White);
-    padding: 4rem 3rem;
     @extend %flex;
     flex-direction: column;
     gap: 3rem;
+
+    padding: 4rem 3rem;
+
+    color: var(--White);
     text-transform: uppercase;
     .step {
-      // background-color: red;
-      width: 100%;
       display: flex;
       align-items: center;
       justify-content: flex-start;
       gap: 1.6rem;
+
+      width: 100%;
       &.active {
         .circle {
           background-color: var(--Light-blue);
@@ -33,9 +37,8 @@
         @extend %flex;
         background-color: transparent;
         height: 3rem;
-        aspect-ratio: 1;
+        width: 3rem;
         border-radius: 50%;
-
         border: 1px solid var(--White);
         p {
           font-weight: 500;
@@ -59,26 +62,28 @@
 }
 
 @media screen and (max-width: 800px) {
-  .left {
-    // display: none;
-    //left only holds the bg image the steps inside holds the real texts so no padding here
-    height: clamp(16rem, 45vw, 26rem);
-    position: fixed;
-    width: 100%;
-    left: 0;
-    top: 0;
-    border-radius: 0;
-    background-image: url("/images/bg-sidebar-mobile.svg");
+  .white-bg {
+    .left {
+      // display: none;
+      //left only holds the bg image the steps inside holds the real texts so no padding here
+      height: clamp(16rem, 45vw, 26rem);
+      position: fixed;
+      width: 100%;
+      left: 0;
+      top: 0;
+      border-radius: 0;
+      background-image: url("/images/bg-sidebar-mobile.svg");
 
-    .steps {
-      padding: 0;
-      flex-direction: row;
-      gap: 1.6rem;
-      width: fit-content;
-      margin-inline: auto;
-      margin-top: clamp(3rem, 8vw, 7rem);
-      .texts {
-        display: none;
+      .steps {
+        padding: 0;
+        flex-direction: row;
+        gap: 1.6rem;
+        width: fit-content;
+        margin-inline: auto;
+        margin-top: clamp(3rem, 8vw, 7rem);
+        .texts {
+          display: none;
+        }
       }
     }
   }

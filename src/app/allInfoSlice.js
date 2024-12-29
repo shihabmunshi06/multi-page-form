@@ -8,11 +8,12 @@ let initialState = {
     },
     selectedPlan: {
         mode: "arcade",
+        monthlyMoney: 9,
+        yearlyMoney: 90,
         duration: "monthly",
-        moneyText: ""
+
     },
     addOns: [],
-    summary: ""
 }
 
 const allInfoSlice = createSlice({
@@ -25,6 +26,10 @@ const allInfoSlice = createSlice({
         addSelectPlan: (state, action) => {
             state.selectedPlan = action.payload
         },
+        setDuration: (state, action) => {
+            state.selectedPlan.duration = action.payload
+        },
+
         addAddOns: (state, action) => {
             state.addOns.push(action.payload)
         },
@@ -38,4 +43,4 @@ const allInfoSlice = createSlice({
 })
 
 export default allInfoSlice.reducer;
-export const { addpersonalInfo, addSelectPlan, addAddOns, removeAddOns, resetAddOns } = allInfoSlice.actions
+export const { addpersonalInfo, addSelectPlan, setDuration, addAddOns, removeAddOns, resetAddOns } = allInfoSlice.actions

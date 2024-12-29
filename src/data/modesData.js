@@ -3,16 +3,16 @@ const modesData = [{
     img: "./images/icon-arcade.svg",
     ariaMsgMonthly: "Select Arcade plan, $9 per month",
     ariaMsgYearly: "Select Arcade plan, $90 per year",
-    monthlyCost: "$9/mo",
-    yearlyCost: "$90/yr"
+    monthlyCost: 9,
+    yearlyCost: 90
 },
 {
     modeName: "advance",
     img: "./images/icon-advanced.svg",
     ariaMsgMonthly: "Select Advance plan, $12 per month",
     ariaMsgYearly: "Select Advance plan, $120 per year",
-    monthlyCost: "$12/mo",
-    yearlyCost: "$120/yr"
+    monthlyCost: 12,
+    yearlyCost: 120
 
 },
 {
@@ -20,8 +20,8 @@ const modesData = [{
     img: "./images/icon-pro.svg",
     ariaMsgMonthly: "Select Pro plan, $15 per month",
     ariaMsgYearly: "Select Pro plan, $150 per year",
-    monthlyCost: "$15/mo",
-    yearlyCost: "$150/yr"
+    monthlyCost: 15,
+    yearlyCost: 150
 
 },
 ]
