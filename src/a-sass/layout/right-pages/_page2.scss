@@ -2,9 +2,8 @@
 
 .card-wrapper {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
-  grid-template-rows: auto;
-  grid-auto-rows: 16rem;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  grid-template-rows: 1;
   gap: 1.8rem;
 
   .input-wrapper {
@@ -107,12 +106,12 @@
   }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 600px) {
   .card-wrapper {
     grid-template-columns: 1fr;
+    grid-template-rows: auto;
     grid-auto-rows: 8rem;
     gap: 1.8rem;
-
     .input-wrapper {
       height: 8rem;
       flex-direction: row;

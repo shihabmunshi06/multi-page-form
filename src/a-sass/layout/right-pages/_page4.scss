@@ -1,3 +1,12 @@
+.confirm-form {
+  .sub-heading {
+    margin-bottom: 5rem !important;
+  }
+  button{
+    background-color: var(--Purplish-blue) !important;
+  }
+}
+
 .finishing-up-wrapper {
   .input-wrapper {
     display: flex;
@@ -11,6 +20,7 @@
       h2 {
         text-transform: capitalize;
         color: var(--Marine-blue);
+        font-weight: 500;
       }
       .inside-button {
         cursor: pointer;
@@ -24,7 +34,7 @@
 
     .money {
       color: var(--Marine-blue);
-      font-weight: 500;
+      font-weight: 700;
     }
   }
 }
@@ -37,7 +47,7 @@
     justify-content: space-between;
 
     margin-bottom: 1rem;
-    
+
     &:last-child {
       margin-top: 2.6rem;
     }
@@ -51,6 +61,7 @@
     }
 
     &.total {
+      margin-top: 5rem;
       h4 {
         font-size: 2rem;
         color: var(--Purplish-blue);

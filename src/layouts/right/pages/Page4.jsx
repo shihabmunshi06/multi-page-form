@@ -27,7 +27,7 @@ export default function Page4() {
         return (
             <div className="detail-card">
                 <h3>{addOnsName.replace("-", " ")}</h3>
-                <h4>${price}{duration === "monthly" ? "/mo" : "/yr"}</h4>
+                <h4>+${price}{duration === "monthly" ? "/mo" : "/yr"}</h4>
             </div>
         )
     }

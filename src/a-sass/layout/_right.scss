@@ -41,13 +41,14 @@
   fieldset {
     legend {
       color: var(--Marine-blue);
-      font-size: 3.2rem;
+      font-size: clamp(24px, 3vw + 1rem, 32px);
       font-weight: 800;
     }
     .sub-heading {
       margin-top: 1.4rem;
-      color: var(--Cool-gray);
       margin-bottom: 2.8rem; //push the inputs down
+      color: var(--Cool-gray);
+      line-height: 137%;
     }
     label {
       color: var(--Marine-blue);
@@ -61,17 +62,26 @@
 @media screen and (max-width: 800px) {
   .white-bg {
     .right {
-      margin-top: clamp(10rem, 25vw, 18rem);
-      background-color: white;
-      width: 100%;
       height: fit-content;
-      padding: 4vw;
+      width: 100%;
       border-radius: 1rem;
+
+      margin-top: clamp(10rem, 25vw, 18rem);
+      padding: 8vw 6.5vw;
+
+      background-color: white;
       button {
         position: fixed;
         right: 0;
         bottom: 0;
         transform: translate(-4vw, -4vw);
+      }
+      .go-back {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        transform: translate(4vw, -4vw);
+        background-color: var(--Magnolia);
       }
     }
   }
