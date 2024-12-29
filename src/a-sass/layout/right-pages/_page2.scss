@@ -1,6 +1,7 @@
 @use "../../base/abstract";
 
 .card-wrapper {
+  height: fit-content;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
   grid-template-rows: 1;
@@ -110,13 +111,15 @@
   .card-wrapper {
     grid-template-columns: 1fr;
     grid-template-rows: auto;
-    grid-auto-rows: 8rem;
     gap: 1.8rem;
     .input-wrapper {
       height: 8rem;
       flex-direction: row;
       justify-content: flex-start;
       gap: 1.4rem;
+      &.yearly {
+        height: 10rem;
+      }
     }
   }
 }
